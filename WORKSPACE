@@ -1,17 +1,20 @@
 workspace(name = "io_bazel_rules_play_routes")
 
-rules_scala_annex_version = "7d053fc1be463e79c5e9e35d2123b1759cfd16e8" # update this as needed
-http_archive(
-    name = "rules_scala_annex",
-    sha256 = "ad0a269ba6965d2321a81331ac065d4603e62576c9d3c6f65b8c9c3a709b8536",
-    strip_prefix = "rules_scala_annex-%s" % rules_scala_annex_version,
-    url = "https://github.com/andyscott/rules_scala_annex/archive/%s.zip" % rules_scala_annex_version,
-)
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
-load("@rules_scala_annex//rules/scala:workspace.bzl", "scala_register_toolchains", "scala_repository", "scala_repositories")
-scala_repositories()
+rules_scala_version = "88ad68b3b9d2b533099cdd3d88a41d106edfeecb"
+http_archive(
+    name = "io_bazel_rules_scala",
+    sha256 = "96b79ceec705bf6e81c4099bb9dcf0aec15747e658dc9406cb4bbf8b108ca38a",
+    strip_prefix = "rules_scala-{version}".format(version = rules_scala_version),
+    type = "zip",
+    url = "https://github.com/bazelbuild/rules_scala/archive/{version}.zip".format(version = rules_scala_version),
+)
+load("@io_bazel_rules_scala//scala:toolchains.bzl", "scala_register_toolchains")
 scala_register_toolchains()
-scala_repository("scala", ("org.scala-lang", "2.11.12"), "@compiler_bridge_2_11//:src")
+load("@io_bazel_rules_scala//scala:scala.bzl", "scala_repositories")
+scala_repositories()
+
 
 skylib_version = "8cecf885c8bf4c51e82fd6b50b9dd68d2c98f757"  # update this as needed
 http_archive(
@@ -77,8 +80,11 @@ http_archive(
     urls = ["https://github.com/google/protobuf/archive/v3.6.1.zip"],
 )
 
-load("//:workspace.bzl", "play_routes_repositories")
-play_routes_repositories()
+#load("//:workspace.bzl", "play_routes_repositories")
+#play_routes_repositories()
+load("//3rdparty:maven.bzl", "maven_dependencies")
+maven_dependencies()
+
 
 load("//:test_workspace.bzl", "play_routes_test_repositories")
 play_routes_test_repositories()
