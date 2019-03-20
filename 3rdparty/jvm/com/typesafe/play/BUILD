@@ -11,7 +11,7 @@ java_library(
 
 
 
-scala_import(
+java_import(
     name = "play",
     exports = [
         "//3rdparty/jvm/com/fasterxml/jackson/core:jackson_annotations",
@@ -131,7 +131,7 @@ java_library(
 
 
 
-scala_import(
+java_import(
     name = "play_netty_server",
     exports = [
         "//3rdparty/jvm/com/typesafe/netty:netty_reactive_streams_http",
@@ -164,7 +164,7 @@ java_library(
 
 
 
-scala_import(
+java_import(
     name = "play_server",
     exports = [
         "//3rdparty/jvm/org/scala_lang:scala_library",
@@ -181,7 +181,7 @@ scala_import(
 
 
 
-scala_import(
+java_import(
     name = "play_specs2",
     exports = [
         "//3rdparty/jvm/org/scala_lang:scala_library",
@@ -217,7 +217,7 @@ java_library(
 
 
 
-scala_import(
+java_import(
     name = "play_test",
     exports = [
         "//3rdparty/jvm/com/google/code/findbugs:jsr305",
@@ -239,7 +239,7 @@ scala_import(
 
 
 
-scala_import(
+java_import(
     name = "routes_compiler",
     exports = [
         "//3rdparty/jvm/commons_io:commons_io",
