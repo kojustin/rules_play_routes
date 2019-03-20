@@ -14,6 +14,15 @@ dependencies:
       lang: scala
       version: 3.7.0
   com.typesafe.play:
+    play:
+      lang: scala
+      version: 2.5.18
+    play-specs2:
+      lang: scala
+      version: 2.5.18
+    play-test:
+      lang: scala
+      version: 2.5.18
     routes-compiler:
       lang: scala
       version: 2.5.18

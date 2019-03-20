@@ -1,4 +1,4 @@
-java_import(
+scala_import(
     name = "scopt",
     exports = [
         "//3rdparty/jvm/org/scala_lang:scala_library"

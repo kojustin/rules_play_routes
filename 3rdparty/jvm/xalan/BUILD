@@ -1,7 +1,8 @@
 java_library(
-    name = "commons_exec",
+    name = "serializer",
     exports = [
-        "//external:jar/org/apache/commons/commons_exec"
+        "//3rdparty/jvm/xml_apis:xml_apis",
+        "//external:jar/xalan/serializer"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
@@ -11,9 +12,10 @@ java_library(
 
 
 java_library(
-    name = "commons_lang3",
+    name = "xalan",
     exports = [
-        "//external:jar/org/apache/commons/commons_lang3"
+        "//external:jar/xalan/xalan",
+        ":serializer"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"

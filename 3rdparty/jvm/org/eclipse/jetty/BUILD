@@ -1,7 +1,8 @@
 java_library(
-    name = "commons_exec",
+    name = "jetty_io",
     exports = [
-        "//external:jar/org/apache/commons/commons_exec"
+        "//external:jar/org/eclipse/jetty/jetty_io",
+        ":jetty_util"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
@@ -11,9 +12,9 @@ java_library(
 
 
 java_library(
-    name = "commons_lang3",
+    name = "jetty_util",
     exports = [
-        "//external:jar/org/apache/commons/commons_lang3"
+        "//external:jar/org/eclipse/jetty/jetty_util"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"

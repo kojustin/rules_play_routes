@@ -1,7 +1,7 @@
 java_library(
-    name = "commons_exec",
+    name = "jna",
     exports = [
-        "//external:jar/org/apache/commons/commons_exec"
+        "//external:jar/net/java/dev/jna/jna"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
@@ -11,9 +11,10 @@ java_library(
 
 
 java_library(
-    name = "commons_lang3",
+    name = "jna_platform",
     exports = [
-        "//external:jar/org/apache/commons/commons_lang3"
+        "//external:jar/net/java/dev/jna/jna_platform",
+        ":jna"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"

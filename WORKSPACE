@@ -84,7 +84,3 @@ http_archive(
 #play_routes_repositories()
 load("//3rdparty:maven.bzl", "maven_dependencies")
 maven_dependencies()
-
-
-load("//:test_workspace.bzl", "play_routes_test_repositories")
-play_routes_test_repositories()
