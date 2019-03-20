@@ -80,7 +80,5 @@ http_archive(
     urls = ["https://github.com/google/protobuf/archive/v3.6.1.zip"],
 )
 
-#load("//:workspace.bzl", "play_routes_repositories")
-#play_routes_repositories()
 load("//3rdparty:maven.bzl", "maven_dependencies")
 maven_dependencies()
