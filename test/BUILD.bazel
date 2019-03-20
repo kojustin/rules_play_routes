@@ -51,10 +51,9 @@ scala_test(
     # ":play-routes-namespace-router",
   ],
   deps = [
-    "@com_typesafe_akka_akka_actor_2_11//jar",
-    "@com_typesafe_play_play_2_11//jar",
-    "@com_typesafe_play_play_specs2_2_11//jar",
-    "@com_typesafe_play_play_test_2_11//jar",
+    "//3rdparty/jvm/com/typesafe/play:play",
+    "//3rdparty/jvm/com/typesafe/play:play_test",
+    "//3rdparty/jvm/com/typesafe/play:play_specs2"
   ]
 )
 
