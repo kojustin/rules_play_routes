@@ -51,9 +51,9 @@ scala_test(
     # ":play-routes-namespace-router",
   ],
   deps = [
-    "//3rdparty/jvm/com/typesafe/play:play",
-    "//3rdparty/jvm/com/typesafe/play:play_test",
-    "//3rdparty/jvm/com/typesafe/play:play_specs2"
+    "//3rdparty/jvm/com/typesafe/play:play_2_11",
+    "//3rdparty/jvm/com/typesafe/play:play_test_2_11",
+    "//3rdparty/jvm/com/typesafe/play:play_specs2_2_11"
   ]
 )
 
