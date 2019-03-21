@@ -5,6 +5,9 @@ java_library(
         "//3rdparty/jvm/org/reactivestreams:reactive_streams",
         "//external:jar/com/typesafe/netty/netty_reactive_streams"
     ],
+    licenses = [
+        "notice"
+    ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
     ]
@@ -18,6 +21,9 @@ java_library(
         "//3rdparty/jvm/io/netty:netty_codec_http",
         "//external:jar/com/typesafe/netty/netty_reactive_streams_http",
         ":netty_reactive_streams"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"

@@ -3,6 +3,9 @@ java_library(
     exports = [
         "//external:jar/io/netty/netty"
     ],
+    licenses = [
+        "notice"
+    ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
     ]
@@ -13,8 +16,10 @@ java_library(
 java_library(
     name = "netty_buffer",
     exports = [
-        "//external:jar/io/netty/netty_buffer",
-        ":netty_common"
+        "//external:jar/io/netty/netty_buffer"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
@@ -26,8 +31,10 @@ java_library(
 java_library(
     name = "netty_codec",
     exports = [
-        "//external:jar/io/netty/netty_codec",
-        ":netty_transport"
+        "//external:jar/io/netty/netty_codec"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
@@ -40,8 +47,10 @@ java_library(
     name = "netty_codec_http",
     exports = [
         "//external:jar/io/netty/netty_codec_http",
-        ":netty_codec",
-        ":netty_handler"
+        ":netty_codec"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
@@ -55,6 +64,9 @@ java_library(
     exports = [
         "//external:jar/io/netty/netty_common"
     ],
+    licenses = [
+        "notice"
+    ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
     ]
@@ -65,10 +77,10 @@ java_library(
 java_library(
     name = "netty_handler",
     exports = [
-        "//external:jar/io/netty/netty_handler",
-        ":netty_buffer",
-        ":netty_codec",
-        ":netty_transport"
+        "//external:jar/io/netty/netty_handler"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
@@ -80,8 +92,10 @@ java_library(
 java_library(
     name = "netty_transport",
     exports = [
-        "//external:jar/io/netty/netty_transport",
-        ":netty_buffer"
+        "//external:jar/io/netty/netty_transport"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
@@ -97,6 +111,9 @@ java_library(
         ":netty_buffer",
         ":netty_common",
         ":netty_transport"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"

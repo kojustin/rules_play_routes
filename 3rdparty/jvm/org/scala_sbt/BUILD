@@ -3,6 +3,9 @@ java_library(
     exports = [
         "//external:jar/org/scala_sbt/test_interface"
     ],
+    licenses = [
+        "notice"
+    ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
     ]

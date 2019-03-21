@@ -1,8 +1,10 @@
 java_library(
     name = "serializer",
     exports = [
-        "//3rdparty/jvm/xml_apis:xml_apis",
         "//external:jar/xalan/serializer"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
@@ -16,6 +18,9 @@ java_library(
     exports = [
         "//external:jar/xalan/xalan",
         ":serializer"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"

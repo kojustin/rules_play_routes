@@ -1,28 +1,27 @@
 options:
-  languages:
-    - java
-    - scala:2.11.11
+  languages: [java]
+  licenses: [notice]
+  # TODO(Jonathon): Using 'aether' because, while much faster, the 'coursier' resolver fails on this dependencies group. We should try to switch back when we can.
+  resolverType: aether
   resolvers:
-    - id: central
-      type: default
-      url: http://central.maven.org/maven2/
-  transtivity: deps
+    - {id: jcenter, type: default, url: 'https://jcenter.bintray.com/'}
+  thirdPartyDirectory: 3rdparty/jvm
 
 dependencies:
   com.github.scopt:
-    scopt:
-      lang: scala
+    scopt_2.11:
+      lang: java
       version: 3.7.0
   com.typesafe.play:
-    play:
-      lang: scala
+    play_2.11:
+      lang: java
       version: 2.5.18
-    play-specs2:
-      lang: scala
+    play-specs2_2.11:
+      lang: java
       version: 2.5.18
-    play-test:
-      lang: scala
+    play-test_2.11:
+      lang: java
       version: 2.5.18
-    routes-compiler:
-      lang: scala
+    routes-compiler_2.11:
+      lang: java
       version: 2.5.18

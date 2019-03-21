@@ -4,6 +4,9 @@ java_library(
         "//3rdparty/jvm/org/seleniumhq/selenium:selenium_java",
         "//external:jar/org/fluentlenium/fluentlenium_core"
     ],
+    licenses = [
+        "notice"
+    ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
     ]

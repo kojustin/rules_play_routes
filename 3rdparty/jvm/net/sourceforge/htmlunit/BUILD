@@ -15,6 +15,9 @@ java_library(
         "//external:jar/net/sourceforge/htmlunit/htmlunit",
         ":htmlunit_core_js"
     ],
+    licenses = [
+        "notice"
+    ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
     ]
@@ -26,6 +29,9 @@ java_library(
     name = "htmlunit_core_js",
     exports = [
         "//external:jar/net/sourceforge/htmlunit/htmlunit_core_js"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"

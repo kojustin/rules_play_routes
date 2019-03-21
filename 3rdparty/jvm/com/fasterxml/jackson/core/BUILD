@@ -3,6 +3,9 @@ java_library(
     exports = [
         "//external:jar/com/fasterxml/jackson/core/jackson_annotations"
     ],
+    licenses = [
+        "notice"
+    ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
     ]
@@ -15,6 +18,9 @@ java_library(
     exports = [
         "//external:jar/com/fasterxml/jackson/core/jackson_core"
     ],
+    licenses = [
+        "notice"
+    ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
     ]
@@ -25,9 +31,10 @@ java_library(
 java_library(
     name = "jackson_databind",
     exports = [
-        "//external:jar/com/fasterxml/jackson/core/jackson_databind",
-        ":jackson_annotations",
-        ":jackson_core"
+        "//external:jar/com/fasterxml/jackson/core/jackson_databind"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"

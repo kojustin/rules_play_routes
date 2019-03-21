@@ -4,6 +4,9 @@ java_library(
         "//external:jar/com/typesafe/play/build_link",
         ":play_exceptions"
     ],
+    licenses = [
+        "notice"
+    ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
     ]
@@ -11,8 +14,8 @@ java_library(
 
 
 
-java_import(
-    name = "play",
+java_library(
+    name = "play_2_11",
     exports = [
         "//3rdparty/jvm/com/fasterxml/jackson/core:jackson_annotations",
         "//3rdparty/jvm/com/fasterxml/jackson/core:jackson_core",
@@ -37,6 +40,7 @@ java_import(
         "//3rdparty/jvm/org/slf4j:jul_to_slf4j",
         "//3rdparty/jvm/org/slf4j:slf4j_api",
         "//3rdparty/jvm/xerces:xercesImpl",
+        "//external:jar/com/typesafe/play/play_2_11",
         ":build_link",
         ":play_iteratees_2_11",
         ":play_json_2_11",
@@ -44,8 +48,8 @@ java_import(
         ":play_streams_2_11",
         ":twirl_api_2_11"
     ],
-    jars = [
-        "//external:jar/com/typesafe/play/play_2_11"
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//visibility:public"
@@ -57,8 +61,10 @@ java_import(
 java_library(
     name = "play_datacommons_2_11",
     exports = [
-        "//3rdparty/jvm/org/scala_lang:scala_library",
         "//external:jar/com/typesafe/play/play_datacommons_2_11"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
@@ -72,6 +78,9 @@ java_library(
     exports = [
         "//external:jar/com/typesafe/play/play_exceptions"
     ],
+    licenses = [
+        "notice"
+    ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
     ]
@@ -82,8 +91,10 @@ java_library(
 java_library(
     name = "play_functional_2_11",
     exports = [
-        "//3rdparty/jvm/org/scala_lang:scala_library",
         "//external:jar/com/typesafe/play/play_functional_2_11"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
@@ -96,9 +107,10 @@ java_library(
     name = "play_iteratees_2_11",
     exports = [
         "//3rdparty/jvm/com/typesafe:config",
-        "//3rdparty/jvm/org/scala_lang:scala_library",
-        "//3rdparty/jvm/org/scala_stm:scala_stm_2_11",
         "//external:jar/com/typesafe/play/play_iteratees_2_11"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
@@ -110,19 +122,12 @@ java_library(
 java_library(
     name = "play_json_2_11",
     exports = [
-        "//3rdparty/jvm/com/fasterxml/jackson/core:jackson_annotations",
-        "//3rdparty/jvm/com/fasterxml/jackson/core:jackson_core",
-        "//3rdparty/jvm/com/fasterxml/jackson/core:jackson_databind",
-        "//3rdparty/jvm/com/fasterxml/jackson/datatype:jackson_datatype_jdk8",
-        "//3rdparty/jvm/com/fasterxml/jackson/datatype:jackson_datatype_jsr310",
-        "//3rdparty/jvm/joda_time:joda_time",
-        "//3rdparty/jvm/org/joda:joda_convert",
-        "//3rdparty/jvm/org/scala_lang:scala_library",
-        "//3rdparty/jvm/org/scala_lang:scala_reflect",
         "//external:jar/com/typesafe/play/play_json_2_11",
         ":play_datacommons_2_11",
-        ":play_functional_2_11",
-        ":play_iteratees_2_11"
+        ":play_functional_2_11"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
@@ -131,16 +136,16 @@ java_library(
 
 
 
-java_import(
-    name = "play_netty_server",
+java_library(
+    name = "play_netty_server_2_11",
     exports = [
         "//3rdparty/jvm/com/typesafe/netty:netty_reactive_streams_http",
         "//3rdparty/jvm/io/netty:netty_transport_native_epoll_jar_linux_x86_64",
-        "//3rdparty/jvm/org/scala_lang:scala_library",
-        ":play_server"
+        "//external:jar/com/typesafe/play/play_netty_server_2_11",
+        ":play_server_2_11"
     ],
-    jars = [
-        "//external:jar/com/typesafe/play/play_netty_server_2_11"
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
@@ -152,11 +157,11 @@ java_import(
 java_library(
     name = "play_netty_utils",
     exports = [
-        "//3rdparty/jvm/org/slf4j:jcl_over_slf4j",
-        "//3rdparty/jvm/org/slf4j:jul_to_slf4j",
-        "//3rdparty/jvm/org/slf4j:slf4j_api",
         "//external:jar/com/typesafe/play/play_netty_utils"
     ],
+    licenses = [
+        "notice"
+    ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
     ]
@@ -164,15 +169,15 @@ java_library(
 
 
 
-java_import(
-    name = "play_server",
+java_library(
+    name = "play_server_2_11",
     exports = [
-        "//3rdparty/jvm/org/scala_lang:scala_library",
-        ":play",
+        "//external:jar/com/typesafe/play/play_server_2_11",
+        ":play_2_11",
         ":play_iteratees_2_11"
     ],
-    jars = [
-        "//external:jar/com/typesafe/play/play_server_2_11"
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
@@ -181,17 +186,18 @@ java_import(
 
 
 
-java_import(
-    name = "play_specs2",
+java_library(
+    name = "play_specs2_2_11",
     exports = [
         "//3rdparty/jvm/org/scala_lang:scala_library",
         "//3rdparty/jvm/org/specs2:specs2_core_2_11",
         "//3rdparty/jvm/org/specs2:specs2_junit_2_11",
         "//3rdparty/jvm/org/specs2:specs2_mock_2_11",
-        ":play_test"
+        "//external:jar/com/typesafe/play/play_specs2_2_11",
+        ":play_test_2_11"
     ],
-    jars = [
-        "//external:jar/com/typesafe/play/play_specs2_2_11"
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//visibility:public"
@@ -205,10 +211,10 @@ java_library(
     exports = [
         "//3rdparty/jvm/com/typesafe/akka:akka_stream_2_11",
         "//3rdparty/jvm/org/reactivestreams:reactive_streams",
-        "//3rdparty/jvm/org/scala_lang/modules:scala_java8_compat_2_11",
-        "//3rdparty/jvm/org/scala_lang:scala_library",
-        "//external:jar/com/typesafe/play/play_streams_2_11",
-        ":play_iteratees_2_11"
+        "//external:jar/com/typesafe/play/play_streams_2_11"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
@@ -217,8 +223,8 @@ java_library(
 
 
 
-java_import(
-    name = "play_test",
+java_library(
+    name = "play_test_2_11",
     exports = [
         "//3rdparty/jvm/com/google/code/findbugs:jsr305",
         "//3rdparty/jvm/com/google/guava:guava",
@@ -227,10 +233,11 @@ java_import(
         "//3rdparty/jvm/net/sourceforge/htmlunit:htmlunit",
         "//3rdparty/jvm/org/fluentlenium:fluentlenium_core",
         "//3rdparty/jvm/org/scala_lang:scala_library",
-        ":play_netty_server"
+        "//external:jar/com/typesafe/play/play_test_2_11",
+        ":play_netty_server_2_11"
     ],
-    jars = [
-        "//external:jar/com/typesafe/play/play_test_2_11"
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//visibility:public"
@@ -239,16 +246,17 @@ java_import(
 
 
 
-java_import(
-    name = "routes_compiler",
+java_library(
+    name = "routes_compiler_2_11",
     exports = [
         "//3rdparty/jvm/commons_io:commons_io",
         "//3rdparty/jvm/org/scala_lang/modules:scala_parser_combinators_2_11",
         "//3rdparty/jvm/org/scala_lang:scala_library",
+        "//external:jar/com/typesafe/play/routes_compiler_2_11",
         ":twirl_api_2_11"
     ],
-    jars = [
-        "//external:jar/com/typesafe/play/routes_compiler_2_11"
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//visibility:public"
@@ -262,8 +270,10 @@ java_library(
     exports = [
         "//3rdparty/jvm/org/apache/commons:commons_lang3",
         "//3rdparty/jvm/org/scala_lang/modules:scala_xml_2_11",
-        "//3rdparty/jvm/org/scala_lang:scala_library",
         "//external:jar/com/typesafe/play/twirl_api_2_11"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"

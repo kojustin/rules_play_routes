@@ -6,6 +6,9 @@ java_library(
         "//3rdparty/jvm/javax/inject:javax_inject",
         "//external:jar/com/google/inject/guice"
     ],
+    licenses = [
+        "notice"
+    ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
     ]

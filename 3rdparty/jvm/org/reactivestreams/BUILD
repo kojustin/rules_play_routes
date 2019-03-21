@@ -3,6 +3,9 @@ java_library(
     exports = [
         "//external:jar/org/reactivestreams/reactive_streams"
     ],
+    licenses = [
+        "notice"
+    ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
     ]

@@ -1,10 +1,10 @@
 java_library(
     name = "selenium_api",
     exports = [
-        "//3rdparty/jvm/com/google/code/gson:gson",
-        "//3rdparty/jvm/com/google/guava:guava",
-        "//3rdparty/jvm/org/apache/httpcomponents:httpclient",
         "//external:jar/org/seleniumhq/selenium/selenium_api"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
@@ -19,6 +19,9 @@ java_library(
         "//external:jar/org/seleniumhq/selenium/selenium_chrome_driver",
         ":selenium_remote_driver"
     ],
+    licenses = [
+        "notice"
+    ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
     ]
@@ -29,10 +32,11 @@ java_library(
 java_library(
     name = "selenium_edge_driver",
     exports = [
-        "//3rdparty/jvm/commons_io:commons_io",
         "//3rdparty/jvm/org/apache/commons:commons_exec",
-        "//external:jar/org/seleniumhq/selenium/selenium_edge_driver",
-        ":selenium_remote_driver"
+        "//external:jar/org/seleniumhq/selenium/selenium_edge_driver"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
@@ -44,10 +48,10 @@ java_library(
 java_library(
     name = "selenium_firefox_driver",
     exports = [
-        "//3rdparty/jvm/commons_io:commons_io",
-        "//3rdparty/jvm/org/apache/commons:commons_exec",
-        "//external:jar/org/seleniumhq/selenium/selenium_firefox_driver",
-        ":selenium_remote_driver"
+        "//external:jar/org/seleniumhq/selenium/selenium_firefox_driver"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
@@ -59,10 +63,10 @@ java_library(
 java_library(
     name = "selenium_htmlunit_driver",
     exports = [
-        "//3rdparty/jvm/net/sourceforge/htmlunit:htmlunit",
-        "//3rdparty/jvm/org/apache/httpcomponents:httpclient",
-        "//external:jar/org/seleniumhq/selenium/selenium_htmlunit_driver",
-        ":selenium_support"
+        "//external:jar/org/seleniumhq/selenium/selenium_htmlunit_driver"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
@@ -76,8 +80,10 @@ java_library(
     exports = [
         "//3rdparty/jvm/net/java/dev/jna:jna",
         "//3rdparty/jvm/net/java/dev/jna:jna_platform",
-        "//external:jar/org/seleniumhq/selenium/selenium_ie_driver",
-        ":selenium_remote_driver"
+        "//external:jar/org/seleniumhq/selenium/selenium_ie_driver"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
@@ -100,6 +106,9 @@ java_library(
         ":selenium_safari_driver",
         ":selenium_support"
     ],
+    licenses = [
+        "notice"
+    ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
     ]
@@ -110,8 +119,10 @@ java_library(
 java_library(
     name = "selenium_leg_rc",
     exports = [
-        "//external:jar/org/seleniumhq/selenium/selenium_leg_rc",
-        ":selenium_remote_driver"
+        "//external:jar/org/seleniumhq/selenium/selenium_leg_rc"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
@@ -125,13 +136,11 @@ java_library(
     exports = [
         "//3rdparty/jvm/cglib:cglib_nodep",
         "//3rdparty/jvm/com/google/code/gson:gson",
-        "//3rdparty/jvm/com/google/guava:guava",
-        "//3rdparty/jvm/net/java/dev/jna:jna",
-        "//3rdparty/jvm/net/java/dev/jna:jna_platform",
-        "//3rdparty/jvm/org/apache/commons:commons_exec",
-        "//3rdparty/jvm/org/apache/httpcomponents:httpclient",
         "//external:jar/org/seleniumhq/selenium/selenium_remote_driver",
         ":selenium_api"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
@@ -143,9 +152,10 @@ java_library(
 java_library(
     name = "selenium_safari_driver",
     exports = [
-        "//3rdparty/jvm/org/webbitserver:webbit",
-        "//external:jar/org/seleniumhq/selenium/selenium_safari_driver",
-        ":selenium_remote_driver"
+        "//external:jar/org/seleniumhq/selenium/selenium_safari_driver"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
@@ -157,8 +167,10 @@ java_library(
 java_library(
     name = "selenium_support",
     exports = [
-        "//external:jar/org/seleniumhq/selenium/selenium_support",
-        ":selenium_remote_driver"
+        "//external:jar/org/seleniumhq/selenium/selenium_support"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"

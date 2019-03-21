@@ -3,6 +3,9 @@ java_library(
     exports = [
         "//external:jar/commons_logging/commons_logging"
     ],
+    licenses = [
+        "notice"
+    ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
     ]

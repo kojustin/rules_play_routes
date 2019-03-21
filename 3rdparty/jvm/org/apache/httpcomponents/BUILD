@@ -1,10 +1,11 @@
 java_library(
     name = "httpclient",
     exports = [
-        "//3rdparty/jvm/commons_codec:commons_codec",
-        "//3rdparty/jvm/commons_logging:commons_logging",
         "//external:jar/org/apache/httpcomponents/httpclient",
         ":httpcore"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
@@ -18,6 +19,9 @@ java_library(
     exports = [
         "//external:jar/org/apache/httpcomponents/httpcore"
     ],
+    licenses = [
+        "notice"
+    ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
     ]
@@ -28,8 +32,10 @@ java_library(
 java_library(
     name = "httpmime",
     exports = [
-        "//external:jar/org/apache/httpcomponents/httpmime",
-        ":httpclient"
+        "//external:jar/org/apache/httpcomponents/httpmime"
+    ],
+    licenses = [
+        "notice"
     ],
     visibility = [
         "//3rdparty/jvm:__subpackages__"
