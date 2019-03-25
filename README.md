@@ -1,8 +1,10 @@
-# Play Framework Routes File Rules for Bazel
+# `rules_play_routes` - _Play Framework_ Routes File Compilation for _Bazel_
 
-| Travis | Stardoc
-| --- | --- |
-| [![Build Status](https://travis-ci.org/lucidsoftware/rules_play_routes.svg)](https://travis-ci.org/lucidsoftware/rules_play_routes) | [Stardoc](http://lucidsoftware.github.io/rules_play_routes/) |
+## ⚠️ **Attention:**
+
+This is a fork of Lucid Software's [`rules_play_routes`](https://github.com/lucidsoftware/rules_play_routes). The fork was made because theirs depends on [higherkindness/rules_scala](https://github.com/higherkindness/rules_scala) (A.K.A `rules_scala_annex`), which I found to be _incompatible_ with my Bazel monorepo that used [`bazelbuild/rules_scala`](https://github.com/bazelbuild/rules_scala) (A.K.A `rules_scala`). 
+
+I've refactored the project to work with [`bazelbuild/rules_scala`](https://github.com/bazelbuild/rules_scala), and also improved how the project uses [bazel_deps](https://github.com/johnynek/bazel-deps) to manage 3rd-party dependencies. 
 
 ## Overview
 `rules_play_routes` compiles [Play Framework routes files](https://www.playframework.com/documentation/latest/ScalaRouting) templates to [Scala](http://www.scala-lang.org/), so they can be used with [`rules_scala`](https://github.com/bazelbuild/rules_scala).
@@ -14,10 +16,10 @@ Create a file called at the top of your repository named `WORKSPACE` and add the
 
 ```python
 # update version as needed
-rules_play_routes_version = "cba8a4383d81e6519730ba2b0203f74fd2c9b765"
+rules_play_routes_version = "8c09e5a37bacdb07d881bb9632b2e849c4bcd579"
 http_archive(
   name = "io_bazel_rules_play_routes",
-  url = "https://github.com/lucidsoftware/rules_play_routes/archive/%s.zip"%rules_play_routes_version,
+  url = "https://github.com/thundergolfer/rules_play_routes/archive/%s.zip" % rules_play_routes_version,
   type = "zip",
   strip_prefix= "rules_play_routes-%s" % rules_play_routes_version
 )
@@ -60,6 +62,9 @@ scala_binary(
 See the [Stardoc documentation](https://lucidsoftware.github.io/rules_play_routes/play-routes/play-routes.html#play_routes) for the full list of options for `play_routes`.
 
 ### Use with the Play Framework
+
+> ⚠️: `rules_twirl` is apparently supported in the original repo, but I have _not_ had success running `rules_twirl` with `rules_scala`, Bazel, and my fork.
+
 `play_routes` can be used with [`rules_twirl`](https://github.com/lucidsoftware/rules_twirl) to run a Play Framework Service. For example
 
 ```python
