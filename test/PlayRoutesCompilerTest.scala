@@ -1,14 +1,13 @@
 package rulesplayroutes.test
 
+import org.scalatestplus.play.guice._
 import org.specs2.mutable.Specification
-import play.api.test._
-import play.api.test.WithApplication
 import play.api.test.Helpers._
+import play.api.test.WithApplication
+import play.api.test._
 import rulesplayroutes.test.routes.ReverseRoutesController
 
-class PlayRoutesCompilerTest extends Specification {
-
-  val app = new FakeApplication()
+class PlayRoutesCompilerTest extends Specification with GuiceFakeApplicationFactory {
 
   "Play Routes Compiler when run through Bazel" should {
     "Compile Play routes" in new WithApplication() {
@@ -25,10 +24,6 @@ class PlayRoutesCompilerTest extends Specification {
 
     "Add additional imports when specified" in new WithApplication() {
       status(route(app, FakeRequest(GET, "/okUser/1")).get) mustEqual OK
-    }
-
-    "Use the specified routes generator" in new WithApplication() {
-      status(route(app, FakeRequest(GET, "/okGenerator")).get) mustEqual OK
     }
 
     "Generate reverse routes when specified" in new WithApplication() {

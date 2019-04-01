@@ -1,11 +1,11 @@
-java_library(
-    name = "scopt_2_11",
+load("@io_bazel_rules_scala//scala:scala_import.bzl", "scala_import")
+scala_import(
+    name = "scopt",
     exports = [
-        "//3rdparty/jvm/org/scala_lang:scala_library",
-        "//external:jar/com/github/scopt/scopt_2_11"
+        "//3rdparty/jvm/org/scala_lang:scala_library"
     ],
-    licenses = [
-        "notice"
+    jars = [
+        "//external:jar/com/github/scopt/scopt_2_12"
     ],
     visibility = [
         "//visibility:public"

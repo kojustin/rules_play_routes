@@ -6,8 +6,8 @@ scala_binary(
   visibility = ["//visibility:public"],
   main_class = "rulesplayroutes.routes.CommandLinePlayRoutesCompiler",
   deps = [
-    "//3rdparty/jvm/com/typesafe/play:routes_compiler_2_11",
-    "//3rdparty/jvm/com/github/scopt:scopt_2_11",
+    "//3rdparty/jvm/com/typesafe/play:routes_compiler",
+    "//3rdparty/jvm/com/github/scopt:scopt",
 #    "@scala_scala_reflect//jar",
   ],
 )

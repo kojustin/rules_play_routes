@@ -1,27 +1,30 @@
 options:
-  languages: [java]
-  licenses: [notice]
-  # TODO(Jonathon): Using 'aether' because, while much faster, the 'coursier' resolver fails on this dependencies group. We should try to switch back when we can.
-  resolverType: aether
+  languages: ["scala:2.12.8"]
+  buildHeader: [ "load(\"@io_bazel_rules_scala//scala:scala_import.bzl\", \"scala_import\")" ]
+  resolverType: coursier
   resolvers:
-    - {id: jcenter, type: default, url: 'https://jcenter.bintray.com/'}
+    - { id: "mavencentral", type: "default", url: "https://repo.maven.apache.org/maven2/" }
   thirdPartyDirectory: 3rdparty/jvm
 
 dependencies:
   com.github.scopt:
-    scopt_2.11:
-      lang: java
+    scopt:
+      lang: scala
       version: 3.7.0
   com.typesafe.play:
-    play_2.11:
-      lang: java
-      version: 2.5.18
-    play-specs2_2.11:
-      lang: java
-      version: 2.5.18
-    play-test_2.11:
-      lang: java
-      version: 2.5.18
-    routes-compiler_2.11:
-      lang: java
-      version: 2.5.18
+    play:
+      lang: scala
+      version: 2.7.0
+    play-specs2:
+      lang: scala
+      version: 2.7.0
+    play-test:
+      lang: scala
+      version: 2.7.0
+    routes-compiler:
+      lang: scala
+      version: 2.7.0
+  org.scalatestplus.play:
+    scalatestplus-play:
+      lang: scala
+      version: 4.0.1
