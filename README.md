@@ -2,12 +2,20 @@
 
 ## ⚠️ **Attention:**
 
-This is a fork of Lucid Software's [`rules_play_routes`](https://github.com/lucidsoftware/rules_play_routes). The fork was made because theirs depends on [higherkindness/rules_scala](https://github.com/higherkindness/rules_scala) (A.K.A `rules_scala_annex`), which I found to be _incompatible_ with my Bazel monorepo that used [`bazelbuild/rules_scala`](https://github.com/bazelbuild/rules_scala) (A.K.A `rules_scala`). 
+This is a fork of Lucid Software's [`rules_play_routes`](https://github.com/lucidsoftware/rules_play_routes). The fork was made because theirs depends on [higherkindness/rules_scala](https://github.com/higherkindness/rules_scala) (A.K.A `rules_scala_annex`), which I found to be _incompatible_ with my Bazel monorepo that used [`bazelbuild/rules_scala`](https://github.com/bazelbuild/rules_scala) (A.K.A `rules_scala`).
 
-I've refactored the project to work with [`bazelbuild/rules_scala`](https://github.com/bazelbuild/rules_scala), and also improved how the project uses [bazel_deps](https://github.com/johnynek/bazel-deps) to manage 3rd-party dependencies. 
+I've refactored the project to work with [`bazelbuild/rules_scala`](https://github.com/bazelbuild/rules_scala), and also improved how the project uses [bazel_deps](https://github.com/johnynek/bazel-deps) to manage 3rd-party dependencies.
 
 ## Overview
-`rules_play_routes` compiles [Play Framework routes files](https://www.playframework.com/documentation/latest/ScalaRouting) templates to [Scala](http://www.scala-lang.org/), so they can be used with [`rules_scala`](https://github.com/bazelbuild/rules_scala).
+This fork of `rules_play_routes` was forked from
+[`thundergolfer/rules_play_routes`][tg] and supports Scala 2.12 and Play
+Framework 2.7.0 and Bazel version 0.23.2.  `rules_play_routes` compiles [Play
+Framework routes files] templates to Scala, so they can be used with
+[`rules_scala`][rules].
+
+[tg]: https://github.com/thundergolfer/rules_play_routes
+[routing]: https://www.playframework.com/documentation/2.7.x/ScalaRouting
+[rules]: https://github.com/bazelbuild/rules_scala
 
 For more information about the Play Framework, see [the Play documentation](https://www.playframework.com/documentation/latest).
 
@@ -15,22 +23,21 @@ For more information about the Play Framework, see [the Play documentation](http
 Create a file called at the top of your repository named `WORKSPACE` and add the following snippet to it.
 
 ```python
-# update version as needed
-rules_play_routes_version = "8c09e5a37bacdb07d881bb9632b2e849c4bcd579"
+# kojustin/rules_play_routes v0.0.2 Experiment released 2019.03.27
+rules_play_routes_release = "0.0.2"
+
 http_archive(
-  name = "io_bazel_rules_play_routes",
-  url = "https://github.com/thundergolfer/rules_play_routes/archive/%s.zip" % rules_play_routes_version,
-  type = "zip",
-  strip_prefix= "rules_play_routes-%s" % rules_play_routes_version
+    name = "rules_play_routes",
+    strip_prefix = "rules_play_routes-%s" % rules_play_routes_release,
+    type = "tar.gz",
+    url = "https://github.com/kojustin/rules_play_routes/archive/%s.tar.gz" % rules_play_routes_release,
 )
 ```
 
 This installs `rules_play_routes` to your `WORKSPACE` at the specified commit. Update the commit as needed.
 
 ## Stardoc Documentation
-http://lucidsoftware.github.io/rules_play_routes/
-
-Stardoc is replacing Skydoc and is currently under development. Doc is likely going to look funny for a while.
+http://kojustin.github.io/rules_play_routes/
 
 ### Updating Stardoc
 Stardoc is automatically updated on build merged into the master branch. To update the documentation, please submit a pull request. The doc will be updated when it is merged.
@@ -39,9 +46,12 @@ Stardoc is automatically updated on build merged into the master branch. To upda
 The Stardoc site for `rules_play_routes` is deployed from the `gh-pages` branch. That branch is deployed with each build of the master branch.
 
 ## Usage
-The `play_routes` rule compiles Play routes files to a source jar that can be used with the `rules_scala` rules. For example,
+The `play_routes` rule compiles Play routes files to a source jar that can be used with the `rules_scala` rules. The jar must be added as a `src` for the dependent binary. For example,
 
 ```python
+# Load the play_routes build rule.
+load("@io_bazel_rules_play_routes//play-routes:play-routes.bzl", "play_routes")
+
 play_routes(
   name = "play-routes",
   srcs = ["conf/routes"] + glob(["conf/*.routes"]),
@@ -52,7 +62,7 @@ play_routes(
 
 scala_binary(
   name = "foo-service",
-  srcs = glob(["app/**/*.scala"]) + [":play-routes"],
+  srcs = glob(["app/**/*.scala"]) + [":play-routes"],  <-- compiled routes are srcs!
   main_class = "foo.server.RunServer",
   deps = [...]
   )
@@ -65,9 +75,12 @@ See the [Stardoc documentation](https://lucidsoftware.github.io/rules_play_route
 
 > ⚠️: `rules_twirl` is apparently supported in the original repo, but I have _not_ had success running `rules_twirl` with `rules_scala`, Bazel, and my fork.
 
-`play_routes` can be used with [`rules_twirl`](https://github.com/lucidsoftware/rules_twirl) to run a Play Framework Service. For example
+`play_routes` can be used with [`rules_twirl`](https://github.com/lucidsoftware/rules_twirl) to run a Play Framework Service. For example, in your BUILD file
 
 ```python
+# Load the play_routes build rule.
+load("@io_bazel_rules_play_routes//play-routes:play-routes.bzl", "play_routes")
+
 twirl_templates(
   name = "twirl-templates",
   source_directory = "app",
@@ -135,3 +148,14 @@ The CI config in `tools/bazel.rc` and other options in `.bazelrc.travis` are use
 ```bash
 tools/skylint.sh
 ```
+
+### Cutting a Release
+
+1. Push code to Github.
+2. Tag a "v0.0.X"
+3. Build the compiler jar `bazel build
+   //play-routes-compiler:play-routes-compiler_deploy.jar`
+4. Caclculate sha256 `openssl dgst -sha256
+   bazel-bin/play-routes-compiler/play-routes-compiler_deploy.jar`, copy this.
+5. Upload `play-routes-compiler_deploy.jar` to the releases page.
+

@@ -4,6 +4,5 @@ GET /500 rulesplayroutes.test.Controller1.fiveHundred()
 
 -> / basic2.Routes
 -> / additional_imports.Routes
--> / generator.Routes
 -> / reverse_router.Routes
 #-> / namespace_router.Routes
