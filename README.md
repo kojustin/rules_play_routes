@@ -32,7 +32,7 @@ For more information about the Play Framework, see [the Play documentation](http
 Create a file called at the top of your repository named `WORKSPACE` and add the following snippet to it.
 
 ```python
-# kojustin/rules_play_routes v0.0.2 Experiment released 2019.03.27
+# kojustin/rules_play_routes v0.0.2 Experiment released 2019.04.06
 rules_play_routes_release = "0.0.2"
 
 http_archive(
