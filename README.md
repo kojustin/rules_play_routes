@@ -9,7 +9,16 @@ I've refactored the project to work with [`bazelbuild/rules_scala`](https://gith
 ## Overview
 This fork of `rules_play_routes` was forked from
 [`thundergolfer/rules_play_routes`][tg] and supports Scala 2.12 and Play
-Framework 2.7.0 and Bazel version 0.23.2.  `rules_play_routes` compiles [Play
+Framework 2.7.0 and Bazel version 0.24.1. This ruleset is self-contained and
+does not require that the consuming Bazel project declare the same external dependencies that
+`rules_play_routes` declares.
+
+This overcomes the issues described in
+
+- https://github.com/thundergolfer/rules_play_routes/pull/1
+- https://github.com/lucidsoftware/rules_play_routes/issues/5
+
+`rules_play_routes` compiles [Play
 Framework routes files] templates to Scala, so they can be used with
 [`rules_scala`][rules].
 
